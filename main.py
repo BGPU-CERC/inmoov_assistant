@@ -17,11 +17,6 @@ from recognition import stt
 from playback import player
 import recorder
 
-from opencv import face_recognition
-from opencv import face_tracking
-
-# from opencv.face_trak import FaceTracker
-
 # some consts
 CDIR = os.getcwd()
 VA_CMD_LIST = yaml.safe_load(
@@ -75,7 +70,6 @@ recorder.rec.start()
 print("Using device: %s" % recorder.rec.selected_device)
 
 init_inmoov()
-# inmoov_commands.face_tracking(True)
 
 ltc = time.time() - 1000
 

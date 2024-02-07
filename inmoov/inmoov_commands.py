@@ -1,22 +1,18 @@
-import requests
-
-from inmoov import server_config
+from session import session
+from server import server
 from inmoov import servo_config
 
-from opencv.face_trak import FaceTracker
+from opencv.face_tracking import FaceTracker
 from inmoov.idle_controller import IdleController
 
 face_track = None
 idle = None
 
-session = requests.Session()
-session.headers.update(server_config.HEADER)
-
 
 def serial_open():
     for el in ["lt_port", "rt_port"]:
-        session.put(
-            f"{server_config.BASE_URL}/serial/ports/{el}", json=server_config.params[el]
+        session.session.put(
+            f"{session.BASE_URL}/serial/ports/{el}", json=server.params[el]
         )
 
 
@@ -27,8 +23,8 @@ def servo_attach():
                 pin = servo_config.node_to_pin.get(element)
                 if pin is not None:
                     attributes = {"pin": pin, "angle": angle, "speed": 100}
-                    session.post(
-                        f"{server_config.BASE_URL}/serial/ports/{port}/attach",
+                    session.session.post(
+                        f"{session.BASE_URL}/serial/ports/{port}/attach",
                         json=attributes,
                     )
 
@@ -38,8 +34,8 @@ def set_config_pose(config, speed):
         pin = servo_config.node_to_pin.get(element)
         if pin is not None:
             attributes = {"pin": pin, "angle": angle, "speed": speed}
-            session.post(
-                f"{server_config.BASE_URL}/serial/ports/{port}/set_angle",
+            session.session.post(
+                f"{session.BASE_URL}/serial/ports/{port}/set_angle",
                 json=attributes,
             )
 
@@ -57,11 +53,11 @@ def set_config_pose(config, speed):
 
 
 def servo_power(state):
-    session.post(f"{server_config.BASE_URL}/serial/power", json={"state": state})
+    session.session.post(f"{session.BASE_URL}/serial/power", json={"state": state})
 
 
 def set_led_state(state):
-    session.post(f"{server_config.BASE_URL}/serial/led_state", json={"state": state})
+    session.session.post(f"{session.BASE_URL}/serial/led_state", json={"state": state})
 
 
 def servo_dafault():
