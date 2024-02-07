@@ -1,36 +1,55 @@
-DEFAULT_SPEED = 100
+node_to_pin = {
+    "thumb": 2,
+    "index": 3,
+    "middle": 4,
+    "ring": 5,
+    "pinky": 6,
+    "wrist": 7,
+    "bicep": 8,
+    "rotate": 9,
+    "shoulder": 10,
+    "omoplate": 11,
+    "neck": 13,
+    "rollneck": 77,
+    "rothead": 26,
+    "jaw": 12,
+    "topstom": 27,
+    "midstom": 28,
+    "eyeX": 12,
+    "eyeY": 13,
+}
 
 hand = {
-    "thumb": {"pin": 2, "angle": 0, "speed": DEFAULT_SPEED},
-    "index": {"pin": 3, "angle": 0, "speed": DEFAULT_SPEED},
-    "middleFinger": {"pin": 4, "angle": 0, "speed": DEFAULT_SPEED},
-    "ringFinger": {"pin": 5, "angle": 0, "speed": DEFAULT_SPEED},
-    "pinky": {"pin": 6, "angle": 0, "speed": DEFAULT_SPEED},
-    "wrist": {"pin": 7, "angle": 90, "speed": DEFAULT_SPEED},
+    "thumb": 0,
+    "index": 0,
+    "middle": 0,
+    "ring": 0,
+    "pinky": 0,
+    "wrist": 90,
 }
 
 arm = {
-    "bicep": {"pin": 8, "angle": 95, "speed": DEFAULT_SPEED},
-    "rotate": {"pin": 9, "angle": 90, "speed": DEFAULT_SPEED},
-    "shoulder": {"pin": 10, "angle": 150, "speed": DEFAULT_SPEED},
-    "omoplate": {"pin": 11, "angle": 18, "speed": DEFAULT_SPEED},
+    "bicep": 95,
+    "rotate": 90,
+    "shoulder": 150,
+    "omoplate": 18,
 }
 
 head = {
-    "neck": {"pin": 13, "angle": 90, "speed": DEFAULT_SPEED},
-    "rollneck": {"pin": 77, "angle": 90, "speed": DEFAULT_SPEED},
-    "rothead": {"pin": 26, "angle": 85, "speed": DEFAULT_SPEED},
-    "jaw": {"pin": 12, "angle": 65, "speed": DEFAULT_SPEED},
+    "neck": 90,
+    "rollneck": 90,
+    "rothead": 85,
+    "jaw": 65,
 }
 
 stom = {
-    "topstom": {"pin": 27, "angle": 73, "speed": DEFAULT_SPEED},
-    "midstom": {"pin": 28, "angle": 90, "speed": DEFAULT_SPEED},
+    "topstom": 73,
+    "midstom": 90,
 }
 
 eyes = {
-    "eyeX": {"pin": 12, "angle": 80, "speed": DEFAULT_SPEED},
-    "eyeY": {"pin": 13, "angle": 90, "speed": DEFAULT_SPEED},
+    "eyeX": 80,
+    "eyeY": 90,
 }
 
 servo = {

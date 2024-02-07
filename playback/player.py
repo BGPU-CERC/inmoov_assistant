@@ -26,7 +26,4 @@ def play(phrase, wait_done=True):
 
     if wait_done:
         play_obj.wait_done()
-        # time.sleep((len(wave_obj.audio_data) / wave_obj.sample_rate) + 0.5)
-        # print("END")
-        # time.sleep(0.5)
         recorder.rec.start()

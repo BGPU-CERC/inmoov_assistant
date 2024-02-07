@@ -72,25 +72,7 @@ def execute_cmd(cmd: str, voice: str):
     elif cmd == "servo_power_off":
         inmoov_commands.servo_power(0)
 
-    elif cmd == "left_bicep_up":
-        inmoov_commands.lbicep_up()
-
-    elif cmd == "left_bicep_down":
-        inmoov_commands.lbicep_down()
-
     elif cmd == "servo_default":
-        inmoov_commands.servo_dafault()
-
-    elif cmd == "check_rhand":
-        inmoov_commands.check_rhand()
-
-    elif cmd == "stay_balance":
-        inmoov_commands.stay_balance1()
-        time.sleep(1.5)
-        inmoov_commands.stay_balance2()
-        time.sleep(1.5)
-        inmoov_commands.stay_balance3()
-        time.sleep(1.5)
         inmoov_commands.servo_dafault()
 
     elif cmd == "power_off":
