@@ -61,10 +61,16 @@ def execute_cmd(cmd: str, voice: str):
         inmoov_commands.servo_attach()
 
     elif cmd == "face_tracking_on":
-        inmoov_commands.face_tracking(True)
+        inmoov_commands.run_face_tracking(True)
 
     elif cmd == "face_tracking_off":
-        inmoov_commands.face_tracking(False)
+        inmoov_commands.run_face_tracking(False)
+
+    elif cmd == "idle_animation_on":
+        inmoov_commands.run_idle_animation(True)
+
+    elif cmd == "idle_animation_off":
+        inmoov_commands.run_idle_animation(False)
 
     elif cmd == "servo_power_on":
         inmoov_commands.servo_power(1)
