@@ -13,6 +13,8 @@ model_small/
 
 # Distribution / packaging
 .Python
+.idea
+.vscode
 env/
 build/
 develop-eggs/
