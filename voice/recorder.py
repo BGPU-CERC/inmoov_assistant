@@ -4,7 +4,9 @@ import pvporcupine
 
 # PORCUPINE
 porcupine = pvporcupine.create(
-    access_key=config.PICOVOICE_TOKEN, keywords=["computer"], sensitivities=[1]
+    access_key=config.PICOVOICE_TOKEN,
+    keywords=[config.PORCUPINE_KEYWORD],
+    sensitivities=[1],
 )
 
 try:

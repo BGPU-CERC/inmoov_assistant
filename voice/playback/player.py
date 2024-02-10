@@ -1,8 +1,8 @@
 import simpleaudio as sa
-import random
 import os
 
-import recorder
+import config
+import voice.recorder as recorder
 
 
 # some consts
@@ -11,7 +11,7 @@ CDIR = os.getcwd()
 
 def play(phrase, wait_done=True):
     global recorder
-    filename = f"{CDIR}\\playback\\sound\\"
+    filename = f"{CDIR}{config.SOUNDS_PATH_PLAYER}"
 
     if phrase == "greet":  # for py 3.8
         filename += "greet.wav"

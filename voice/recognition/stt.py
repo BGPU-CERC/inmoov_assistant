@@ -5,7 +5,7 @@ import sys
 import config
 
 # VOSK
-model = vosk.Model("recognition/model_small")
+model = vosk.Model("voice/recognition/model_small")
 samplerate = 16000
 device = config.MICROPHONE_INDEX
 kaldi_rec = vosk.KaldiRecognizer(model, samplerate)

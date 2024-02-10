@@ -27,9 +27,9 @@ def text_to_speech(text="Привет друг!"):
     audio_url = result.get("microsoft").get("audio_resource_url")
     r = requests.get(audio_url)
 
-    with open(f"playback/sound/{filename}", "wb") as file:
+    with open(f"{config.SOUNDS_PATH}{filename}", "wb") as file:
         file.write(r.content)
 
-    data, samplerate = sf.read(f"playback/sound/{filename}")
+    data, samplerate = sf.read(f"{config.SOUNDS_PATH}{filename}")
     sd.play(data, samplerate)
     sd.wait()

@@ -6,13 +6,13 @@ from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
 from ctypes import POINTER, cast
 from comtypes import CLSCTX_ALL
 
-from playback import player
+from voice.playback import player
 import config
 from inmoov import inmoov_commands
 
 CDIR = os.getcwd()
 VA_CMD_LIST = yaml.safe_load(
-    open("commands/commands.yaml", "rt", encoding="utf8"),
+    open(config.CMD_LIST_PATH, "rt", encoding="utf8"),
 )
 
 

@@ -4,9 +4,11 @@ from inmoov import servo_config
 
 from opencv.face_tracking import FaceTracker
 from inmoov.idle_controller import IdleController
+from voice.voice_controller import VoiceController
 
 face_track = None
 idle = None
+voice_control = None
 
 
 def serial_open():
@@ -86,3 +88,15 @@ def run_idle_animation(mode):
     else:
         idle.stop_idle_animation()
         idle = None
+
+
+def run_voice_control(mode):
+    global voice_control
+    if voice_control is None:
+        voice_control = VoiceController()
+
+    if mode:
+        voice_control.start_voice_control()
+    else:
+        voice_control.stop_voice_control()
+        voice_control = None
