@@ -57,6 +57,7 @@ def va_respond(voice: str):
 
 
 def init_inmoov():
+    inmoov_commands.servo_power(0)
     inmoov_commands.serial_open()
     time.sleep(1)
     inmoov_commands.servo_attach()

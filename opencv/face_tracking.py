@@ -1,5 +1,6 @@
 import cv2
 import threading
+import time
 
 from inmoov.head_controller import HeadController
 
@@ -51,20 +52,14 @@ class FaceTracker:
                     8,
                 )
 
-                # determine the center of the rectangle
-                # self.x_center = x1 + (x2 - x1) / 2
-                # self.y_center = y1 + (y2 - y1) / 2
+                area = (y2 - y1) * (x2 - x1)
+                print(f"area: {area}")
 
                 self.x_center = int((x1 + x2) / 2)
                 self.y_center = int((y1 + y2) / 2)
 
-                # errorX = int(frameWidth / 2) - self.x_center
-                # errorY = int(frameHeight / 2) - self.y_center
-
                 print(f"x: {self.x_center} y: {self.y_center}")
-                # print(f"errX: {errorX} errY: {errorY}")
 
-                font = cv2.FONT_HERSHEY_DUPLEX
                 cv2.circle(frame, (self.x_center, self.y_center), 5, (0, 0, 255), -1)
 
                 # Центральные линии
@@ -82,6 +77,8 @@ class FaceTracker:
                     (0, 0, 0),
                     1,
                 )
+
+                # font = cv2.FONT_HERSHEY_DUPLEX
 
                 # # вставляем значение ошибки по X
                 # cv2.putText(
@@ -140,25 +137,17 @@ class FaceTracker:
 
     def process_next_frame(self):
         self.is_tracking = True
-        frame_counter = 0  # Счетчик кадров
-        process_every_n_frames = 4  # Обработка каждого n-го кадра
         while self.is_tracking:
             try:
                 _, frameOrig = self.cap.read()
-
-                # if self.x_center is not None and self.y_center is not None:
-                #     self.head_controller.move_head(self.x_center, 640, 480, 26)
-                #     self.head_controller.move_head(self.y_center, 640, 480, 13)
-
-                frame_counter += 1
-                if frame_counter % process_every_n_frames != 0:
-                    continue
 
                 resize_frame = cv2.resize(frameOrig, (640, 480))
                 outOpencvDnn, bboxes = self.detect_face_openCV_dnn(
                     self.net, resize_frame
                 )
                 cv2.imshow("frame", resize_frame)
+
+                time.sleep(0.033)
 
             except Exception as e:
                 print(f"exc: {e}")

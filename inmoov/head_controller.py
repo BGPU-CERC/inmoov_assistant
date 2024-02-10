@@ -1,5 +1,4 @@
 from session import session
-from time import time
 
 
 class HeadController:

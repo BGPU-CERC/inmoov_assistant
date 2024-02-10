@@ -72,10 +72,8 @@ def run_face_tracking(mode):
     if mode:
         face_track.start_video_tracking()
     else:
-        # face_track.release_capture()
         face_track.stop_video_tracking()
         face_track = None
-        # del face_track
 
 
 def run_idle_animation(mode):
