@@ -19,6 +19,7 @@ node_to_pin = {
     "eyeY": 13,
 }
 
+# lt_port & rt_port
 hand = {
     "thumb": 0,
     "index": 0,
@@ -28,6 +29,7 @@ hand = {
     "wrist": 90,
 }
 
+# lt_port & rt_port
 arm = {
     "bicep": 95,
     "rotate": 90,
@@ -35,6 +37,7 @@ arm = {
     "omoplate": 18,
 }
 
+# lt_port
 head = {
     "neck": 90,
     "rollneck": 90,
@@ -42,6 +45,7 @@ head = {
     "jaw": 65,
 }
 
+# lt_port
 stom = {
     "topstom": 73,
     "midstom": 90,
@@ -52,7 +56,25 @@ eyes = {
     "eyeY": 90,
 }
 
-servo = {
+all_servo = {
     "lt_port": (hand, arm, head, stom),
     "rt_port": (hand, arm, eyes),
+}
+
+head_servo = {
+    "lt_port": (head),
+}
+
+hand_servo = {
+    "lt_port": (hand),
+    "rt_port": (hand),
+}
+
+arm_servo = {
+    "lt_port": (arm),
+    "rt_port": (arm),
+}
+
+eyes_servo = {
+    "lt_port": (eyes),
 }

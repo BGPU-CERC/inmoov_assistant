@@ -63,7 +63,7 @@ def set_led_state(state):
 
 
 def servo_dafault():
-    set_config_pose(servo_config.servo, 50)
+    set_config_pose(servo_config.all_servo, 50)
 
 
 def run_face_tracking(mode):
