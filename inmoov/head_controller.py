@@ -1,4 +1,4 @@
-from session import session
+from server.api import api
 
 
 class HeadController:
@@ -43,19 +43,5 @@ class HeadController:
             f"rothead angle: {self.rothead_current} neck angle: {self.neck_current} errorX: {errorX} errorY: {errorY}"
         )
 
-        session.session.post(
-            f"{session.BASE_URL}/serial/ports/lt_port/set_angle",
-            json={
-                "angle": self.rothead_current,
-                "pin": 26,
-                "speed": 100,
-            },
-        )
-        session.session.post(
-            f"{session.BASE_URL}/serial/ports/lt_port/set_angle",
-            json={
-                "angle": self.neck_current,
-                "pin": 13,
-                "speed": 100,
-            },
-        )
+        api.set_servo_target("lt_port", 26, self.rothead_current, 100)
+        api.set_servo_target("lt_port", 13, self.neck_current, 100)
